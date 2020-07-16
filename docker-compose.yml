@@ -13,9 +13,9 @@ services:
     command: "pm2-runtime start ecosystem.json --env production -i 2"
     ports:
     - 3000:80
-    dns:
-    - 123.57.226.23
-    - 121.41.21.104
+    #dns:
+    #- 123.57.226.23
+    #- 121.41.21.104
 
 networks:
   default:
