@@ -1,0 +1,23 @@
+version: '3.2'
+
+services:
+
+  snapshot:
+    container_name: snapshot
+    build:
+      context: node
+    volumes:
+    - /data/wwwroot/node_puppeteer:/snapshot
+    environment:
+    - TZ=Asia/Shanghai
+    command: "pm2-runtime start ecosystem.json --env production -i 2"
+    ports:
+    - 3000:80
+    dns:
+    - 123.57.226.23
+    - 121.41.21.104
+
+networks:
+  default:
+    external:
+      name: janfish
