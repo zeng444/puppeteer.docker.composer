@@ -25,3 +25,7 @@ docker exec -it snapshot "yarn install"
 ```
 docker restart snapshot
 ```
+
+- 应用代码
+
+app目录下为应用代码docker-compose.yml，中应用挂在的代码目录

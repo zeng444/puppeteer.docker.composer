@@ -1,0 +1,27 @@
+{
+  "apps" : [{
+      "name"      : "api",
+      "script"    : "app.js",
+      "env": {
+          "COMMON_VARIABLE": "true"
+      },
+      "env_production" : {
+          "NODE_ENV": "production"
+      }
+  }],
+  "deploy" : {
+          "production" : {
+              "user" : "root",
+              "host" : ["121.196.212.10"],
+              "port" : 9000,
+              "ref"  : "origin/develop",
+              "repo" : "git@gitee.com:bigbomb_702/capricorn_api_interface.git",
+              "path" : "/server/pm2/capricorn_api_interface",
+              "ssh_options": "StrictHostKeyChecking=no",
+              "post-deploy" : "cnpm install && pm2 startOrRestart ecosystem.json --env production",
+              "env"  : {
+                  "NODE_ENV": "production"
+          }
+      }
+  }
+}
